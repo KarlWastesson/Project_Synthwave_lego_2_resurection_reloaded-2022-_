@@ -1,33 +1,45 @@
-<?php include_once("src/head.php"); ?>
-<body>
-    <div class="divBlack-lego">
-    <?php include_once("src/searchbar.php"); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <title>A Meaningful Page Title</title>
+
+</head>
+
+
         <div class="flex-child-lego">
+		<?php include 'search.php'; ?>	
+		<?php 
+		$SetID =  $_GET['set'];
+		
+		echo "<h2>Set of $SetID</h2>"; ?>		
 			<table>
 			<tbody>
 			<tr><th>Setname</th><th>SetID</th><th>Quantity</th><th>File name</th><th>Picture</th><th>Color</th><th>Part name</th></tr>
 			 <?php printTable(); ?>
 			</tbody>
-		</table>
+		</table>	
         </div>
     </div>
 </body>
 </html>
 
+
 <?php
 
 function printTable() {
-
-    $nameValue = document.getElementById("form").value;
-    console.log(nameValue);
+	$SetID =  $_GET['set'];
 	$connection=mysqli_connect("mysql.itn.liu.se","lego","","lego");	//Lego is the db
 		
 	$sql = "SELECT inventory.quantity, inventory.ItemTypeID, inventory.ItemID, inventory.ColorID, images. has_gif, images.has_jpg, colors.Colorname, parts.Partname, inventory.SetID, sets.Setname ".
 			"FROM inventory ".
+			"JOIN images ON inventory.ItemTypeID = images.ItemTypeID AND inventory.ItemID = images.ItemID AND inventory.ColorID = images.ColorID ".
 			"JOIN colors ON inventory.ColorID = colors.ColorID ".
 			"JOIN parts ON inventory.ItemID = parts.PartID ".
 			"JOIN sets ON inventory.SetID = sets.SetID ".
-			"WHERE inventory.SetID = '375-2'"; //filter
+			"WHERE inventory.SetID = $SetID"; //filter
 			
 
 	$result = mysqli_query($connection, $sql);
@@ -70,4 +82,3 @@ function printTable() {
 		mysqli_close($connection);
 }
 ?>
-</html>
