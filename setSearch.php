@@ -18,7 +18,7 @@
 		echo "<h2>Set of $SetID</h2>"; ?>		
 			<table>
 			<tbody>
-			<tr><th>SetID</th><th>SetName</th>
+			<tr><th>SetID</th><th>SetName</th><th>Image</th>
 			 <?php printTable(); ?>
 			</tbody>
 		</table>	
@@ -51,22 +51,53 @@ while($row = mysqli_fetch_array($res)){
     
     $setID = $row['SetID'];
     $setName = $row['Setname'];
+	$prefix = "http://www.itn.liu.se/~stegu76/img.bricklink.com/";
  
     $url 		= "";
-	$prefix		= "http://weber.itn.liu.se/~stegu/img.bricklink.com/";
-
 	
+	$imagesearch = mysqli_query($con, "SELECT * FROM images WHERE (ItemTypeID='S' AND ItemID='".$setID."')");
+	$imageinfo = mysqli_fetch_array($imagesearch);  
+
+	$hasimg=FALSE;
+				  
+			   
+			   if($imageinfo['has_gif'] !=0)
+			   { // Använd GIF om JPG inte tillgägligt 
+				 $hasimg=TRUE;
+				 $filename = "S/$setID.gif";
+			   }
+			   else if($imageinfo['has_jpg'] !=0)
+			   { // Använd JPG om den finns
+				 $filename = "S/$setID.jpg";
+				 $hasimg=TRUE;
+			   }
+			   else
+			   { // Om ingen format finns skriv ut text 
+				 $hasimg=FALSE;
+				 $filename = "noimage_small.png";
+			   }
+			  
+			   
+			   
+
+
     print ("<tr>\n");
     print("<th><a href='setDetail.php?setID=$setID&setName=$setName'>$setID</a></th>");
 	print("<th>$setName</th>");
-	
+	if($hasimg==TRUE)
+	  print("<th><img src=\"$prefix$filename\" alt=\"NO image\"/></th>");
+	else
+	  print('<th><img src="'.$filename.'" alt="'.$ItemID.'"/></th>');
+
+
+
 
 }
 
 
 
 
-mysqli_close($connection);
+mysqli_close($con);
     
 }
 
