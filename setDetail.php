@@ -28,7 +28,7 @@
 		$SetName =  $_GET['setName'];
 		
 		echo "<h2>Set of $SetID $SetName</h2>"; ?>		
-			<table>
+			<table class="tableDetail">
 			<tbody>
 			<tr><th>Setname</th><th>SetID</th><th>Quantity</th><th>File name</th><th>Picture</th><th>Color</th><th>Part name</th></tr>
 			 <?php printTable(); ?>
