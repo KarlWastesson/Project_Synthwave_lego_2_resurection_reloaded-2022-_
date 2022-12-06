@@ -3,16 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+    <link rel="stylesheet" href="styles.css">
     <title>A Meaningful Page Title</title>
 
 </head>
-
 <body>
-	<div>
-        <div>
-		<?php include 'search.php'; ?>	
-		<?php  
+<div class="flexContainer">
+    <div class="header">
+    <?php include 'header.html'; ?>	
+    </div>
+
+    <div class="bar">
+    <form method="GET" action="setSearch.php"> 
+		
+    <?php include 'search.php'; ?>	
+    </form>
+    </div>
+ 
+		<div class="result">
+			<?php  
 		$SetID =  $_GET['set'];
 		
 		echo "<h2>Set of $SetID</h2>"; ?>		
@@ -22,8 +31,8 @@
 			 <?php printTable(); ?>
 			</tbody>
 		</table>	
-        </div>
-    </div>
+	</div>	
+</div>
 </body>
 </html>
 

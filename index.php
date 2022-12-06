@@ -3,19 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+    <link rel="stylesheet" href="styles.css">
     <title>A Meaningful Page Title</title>
 
 </head>
 <body>
+    <div class="flexContainer">
+    <div class="header">
+    <?php include 'header.html'; ?>	
+    </div>
 
-        <div>
-		<?php include 'search.php'; ?>	
+    <div class="bar">
+    <form method="GET" action="setSearch.php"> 
 		
-		<div>
-        Gör en sökning	
+    <?php include 'search.php'; ?>	
+    </form>
+    </div>
+ 
 			
-        </div>
+</div>   
    
 </body>
 </html>
