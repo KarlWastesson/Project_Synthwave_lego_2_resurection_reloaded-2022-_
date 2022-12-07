@@ -92,11 +92,4 @@ function fetchImage($con, $setID) {
     return null;
 }
 
-
-
-    
-
-
-
-
 ?>

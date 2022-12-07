@@ -8,6 +8,7 @@
 
 </head>
 
+</script>
 <body>
 <div class="flexContainer">
     <div class="header">
@@ -28,12 +29,15 @@
 		$SetName =  $_GET['setName'];
 		
 		echo "<h2>Set of $SetID $SetName</h2>"; ?>		
-			<table class="tableDetail">
+			<table class="tableDetail" id="partTable">
 			<tbody>
 			<tr><th>Quantity</th><th>Picture</th><th>Color</th><th>Part name</th></tr>
-			 <?php printTable(); ?>
+			 <?php printTable(); 
+			  ?>
 			</tbody>
-		</table>	
+
+		</table>
+	
 	</div>	
 </div>
 </body>
@@ -84,14 +88,15 @@ function printTable() {
 		//rows ctrl D
 		print ("<tr>\n");
 
-		print("<th>".$quantity."</th>\n");
+		print("<th id=\"row1\">".$quantity."</th>\n");
 		print("<th><image src=".$prefix.$url."></image></th>\n");
 		print("<th>".$colorname."</th>\n");
 		print("<th>".$partname."</th>\n");
 		print ("</tr>");
 			
 	}  
-		
+	    
+
 		mysqli_close($connection);
 }
 ?>
