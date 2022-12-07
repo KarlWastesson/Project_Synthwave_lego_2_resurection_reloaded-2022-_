@@ -44,71 +44,58 @@
 
 
 function printTable() {
+    $search = $_GET['set'];
+    $term = "'%$search%'";
 
-$search = $_GET['set'];
-$term =  "'%$search%'";
+    $con = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
 
-$con=mysqli_connect("mysql.itn.liu.se","lego","","lego");	//Lego is the db
+    $query = buildSqlQuery($term);
+    $res = mysqli_query($con, $query);
 
-$query = "SELECT Setname, SetID FROM sets
-WHERE Setname LIKE $term OR SetID LIKE $term
-";
+    while ($row = mysqli_fetch_array($res)) {
+        $setID = $row['SetID'];
+        $setName = $row['Setname'];
+        $prefix = "http://www.itn.liu.se/~stegu76/img.bricklink.com/";
 
-$res = mysqli_query($con, $query);
+        $image = fetchImage($con, $setID);
 
-while($row = mysqli_fetch_array($res)){
-    
-    $setID = $row['SetID'];
-    $setName = $row['Setname'];
-	$prefix = "http://www.itn.liu.se/~stegu76/img.bricklink.com/";
- 
-    $url 		= "";
-	
-	$imagesearch = mysqli_query($con, "SELECT * FROM images WHERE (ItemTypeID='S' AND ItemID='".$setID."')");
-	$imageinfo = mysqli_fetch_array($imagesearch);  
+        print ("<tr>\n");
+        print("<th><a href='setDetail.php?setID=$setID&setName=$setName'>$setID</a></th>");
+        print("<th>$setName</th>");
 
-	$hasimg=FALSE;
-				  
-			   
-			   if($imageinfo['has_gif'] !=0)
-			   { // Använd GIF om JPG inte tillgägligt 
-				 $hasimg=TRUE;
-				 $filename = "S/$setID.gif";
-			   }
-			   else if($imageinfo['has_jpg'] !=0)
-			   { // Använd JPG om den finns
-				 $filename = "S/$setID.jpg";
-				 $hasimg=TRUE;
-			   }
-			   else
-			   { // Om ingen format finns skriv ut text 
-				 $hasimg=FALSE;
-				 $filename = "noimage_small.png";
-			   }
-			  
-			   
-			   
+        if ($image) {
+            print("<th><img src=\"$prefix$image\" alt=\"NO image\"/></th>");
+        } else {
+            print('<th><img src="noimage_small.png" alt="NO image"/></th>');
+        }
+    }
+	mysqli_close($con);
+}
 
+function buildSqlQuery($term) {
+    return "SELECT Setname, SetID FROM sets WHERE Setname LIKE $term OR SetID LIKE $term";
+}
 
-    print ("<tr>\n");
-    print("<th><a href='setDetail.php?setID=$setID&setName=$setName'>$setID</a></th>");
-	print("<th>$setName</th>");
-	if($hasimg==TRUE)
-	  print("<th><img src=\"$prefix$filename\" alt=\"NO image\"/></th>");
-	else
-	  print('<th><img src="'.$filename.'" alt="'.$ItemID.'"/></th>');
+function fetchImage($con, $setID) {
+    $imagesearch = mysqli_query($con, "SELECT * FROM images WHERE (ItemTypeID='S' AND ItemID='".$setID."')");
+    $imageinfo = mysqli_fetch_array($imagesearch);
 
+    if ($imageinfo['has_gif'] != 0) {
+        // Använd GIF om JPG inte tillgägligt
+        return "S/$setID.gif";
+    } else if ($imageinfo['has_jpg'] != 0) {
+        // Använd JPG om den finns
+        return "S/$setID.jpg";
+    }
 
-
-
+    // Om ingen format finns returnera NULL
+    return null;
 }
 
 
 
-
-mysqli_close($con);
     
-}
+
 
 
 
