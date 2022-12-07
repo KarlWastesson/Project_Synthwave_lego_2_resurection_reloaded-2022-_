@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css">
-    <title>A Meaningful Page Title</title>
 
-</head>
-
-</script>
 <body>
-<div class="flexContainer">
-    <div class="header">
-    <?php include 'header.html'; ?>	
-    </div>
-
+	<div class="flexContainer">
+    	 <div class="header">
+   			 <?php include 'header.html'; ?>	
+   		 </div>
     <div class="bar">
-    <form method="GET" action="setSearch.php"> 
-		
     <?php include 'search.php'; ?>	
-    </form>
     </div>
- 
-		<div class="result">
-			
+	<div class="photoCardDetail">
 		<?php 
-		$SetID =  $_GET['setID'];
-		$SetName =  $_GET['setName'];
-		
-		echo "<h2>Set of $SetID $SetName</h2>"; ?>		
-			<table class="tableDetail" id="partTable">
-			<tbody>
-			<tr><th>Quantity</th><th>Picture</th><th>Color</th><th>Part name</th></tr>
-			 <?php printTable(); 
-			  ?>
-			</tbody>
+			$SetID =  $_GET['setID'];
+			$SetName =  $_GET['setName'];
+			$SetPicture =  $_GET['setPicture'];
 
-		</table>
-	
-	</div>	
-</div>
+			if($SetPicture){
+			echo("<img src=\"$SetPicture\" alt=\"NO image\"/>");
+			}
+			else{
+			echo('<th><img src="noimage_small.png" alt="NO image"/></th>');
+			}
+
+       	    echo("<h1>Set of $SetID $SetName</h1>"); 
+		 ?>	
+	</div>
+		<div class="result"> 	
+			<table class="tableDetail" id="partTable">
+				<tbody>
+					<tr><th>Quantity</th><th>Picture</th><th>Color</th><th>Part name</th></tr>
+			 		<?php printTable();?>
+				</tbody>
+			</table>
+		</div>	
+	</div>
 </body>
 
 </html>
