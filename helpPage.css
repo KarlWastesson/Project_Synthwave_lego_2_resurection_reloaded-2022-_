@@ -1,0 +1,30 @@
+
+@import 'https://fonts.googleapis.com/css?family=Damion|Work+Sans:900';
+
+.title {
+    font-family: 'Damion', cursive;
+    font-size: 4em;
+    color: #fff;	
+    animation: glow 1s ease-in-out infinite alternate;
+    text-align: center;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(253, 211, 25), 0 0 40px rgb(253, 211, 25), 0 0 50px rgb(253, 211, 25), 0 0 60px rgb(253, 211, 25),0 0 70px rgb(253, 211, 25);
+      }
+      
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ffed4d, 0 0 40px #ffed4d, 0 0 50px #ffed4d, 0 0 60px #ffed4d, 0 0 70px #ffed4d, 0 0 80px #ffed4d;
+      }
+}
+
+.content {
+    font-family: 'Work sans', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+
+   
+    background-color: rgb(228, 221, 221);
+    box-shadow: 0 0 10px rgba(245, 138, 213, 0.575);
+}

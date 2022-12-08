@@ -9,8 +9,9 @@
           <?php include 'search.php'; ?>	
        </div>
         <div class="result">
-	  	<p>Detta är en hjälpsida!!!!</p>	
-	      </div>			
+	  	  <p class = "title"> <strong> About this page </strong></p>	
+        <div class="content"> This is a lego database. </div>			
      </div>    
+     
   </body>
 </html>
