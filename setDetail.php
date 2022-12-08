@@ -45,7 +45,10 @@ function printTable() {
 	$SetID =  $_GET['setID'];
 	$connection=mysqli_connect("mysql.itn.liu.se","lego","","lego");	//Lego is the db
 		
-	$sql = "SELECT inventory.Quantity, inventory.ItemTypeID, inventory.ItemID, inventory.ColorID, colors.Colorname, parts.Partname, images.has_gif, images.has_jpg, images.has_largegif, images.has_largejpg
+	$sql = "SELECT inventory.Quantity, inventory.ItemTypeID, inventory.ItemID, 
+	inventory.ColorID, colors.Colorname, parts.Partname, images.has_gif, 
+	images.has_jpg, images.has_largegif, images.has_largejpg
+
 	FROM inventory
 	INNER JOIN parts
 		ON inventory.ItemID = parts.PartID
@@ -55,10 +58,14 @@ function printTable() {
 		ON inventory.ItemID = images.ItemID
 		AND inventory.ColorID = images.ColorID
 	WHERE inventory.SetID = '$SetID'
-		AND inventory.ItemTypeID = 'P'";
+		AND inventory.ItemTypeID = 'P'
+	
+	ORDER BY inventory.ItemID";
+	
 	
 
     $result = mysqli_query($connection, $sql);
+
 
 
 	while ($row = mysqli_fetch_array($result)) {
