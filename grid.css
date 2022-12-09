@@ -9,6 +9,7 @@
 }
 
 .grid-container a {
+    color: white;
     text-decoration: none;
     display: flex;
     flex-direction: column;
