@@ -1,0 +1,28 @@
+.grid-container {
+    display: grid;
+    /*sätter upp ett template med så många rutor som 250px rymmer där varje ruta tar upp "1fraction" av tillgänglig yta.*/
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /*Fyller grid till höger*/
+    grid-auto-flow: row;
+    padding: 10px;
+    gap: 30px;
+}
+
+.grid-container a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: rgb(76, 0, 93);
+
+}
+
+.grid-container a img {
+    display: block;
+    margin: 0 auto;
+}
+
+.grid-container a:hover {
+    background-color: rgb(3, 0, 50);
+}

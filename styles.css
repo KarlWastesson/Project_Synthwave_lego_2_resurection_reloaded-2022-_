@@ -1,14 +1,16 @@
-
 body {
   background-image: url("test.jpg");
-  animation: synthwave 120s linear infinite;
-
+  animation: synthwave 20s linear infinite alternate;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 @keyframes synthwave {
   0% {
     background-position: 30% 30%;
   }
+
   100% {
     background-position: 50% 20%;
   }
@@ -93,6 +95,7 @@ body {
   border-spacing: 0;
 
 }
+
 th {
   border: 1px solid black;
 }
@@ -122,9 +125,8 @@ th {
   color: #e2dae0;
 }
 
-#setPicture
-{
-  
+#setPicture {
+
   max-width: 200px;
   max-height: 2000px;
 
