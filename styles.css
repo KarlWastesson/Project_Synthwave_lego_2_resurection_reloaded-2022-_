@@ -1,163 +1,131 @@
 
+body {
+  background-image: url("test.jpg");
+  animation: synthwave 120s linear infinite;
+
+}
+
+@keyframes synthwave {
+  0% {
+    background-position: 30% 30%;
+  }
+  100% {
+    background-position: 50% 20%;
+  }
+}
+
+.headContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 400px;
+  padding-bottom: 20px;
+}
+
+.backButton,
+.visualiser,
+.help {
+  margin: auto;
+}
+
+.backButton {
+  order: 1;
+}
+
+.visualiser {
+  order: 2;
+}
+
+.help {
+  order: 3;
+}
+
+.flexContainer {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  order: 1;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.bar,
+.searchbar,
+.photoCardDetail,
+.result {
+  margin: auto;
+}
+
+.bar,
+.photoCardDetail {
+  order: 2;
+  margin-top: auto;
+  margin-bottom: 40px;
+}
+
+.searchbar {
+  height: 45px;
+  border: none;
+  width: 400px;
+  font-size: 16px;
+  outline: none;
+  border-radius: 30px;
+}
+
+.photoCardDetail {
+  color: aliceblue;
+  justify-content: center;
+}
+
+.result {
+  order: 4;
+}
+
+.tableSet {
+
+  width: 80vw;
+  background-color: #e2dae0;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+
+}
+th {
+  border: 1px solid black;
+}
+
+
+.tableDetail {
+  width: 100%;
+  background-color: #e2dae0;
+  border-radius: 10px;
+}
+
+.button {
+  background-color: #f5f5f5;
+  border: none;
+  color: #707070;
+  font-size: 15px;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.button:hover,
+.button:focus {
+  border: 1px solid #e2dae0;
+  padding: 9px 19px;
+  color: #e2dae0;
+}
+
+#setPicture
+{
   
-  body {
-    background-image: url("test.jpg");
-    
-    animation: synthwave 120s linear infinite;
-    
-  }
-  
-  @keyframes synthwave {
-    0% {
-      background-position: 30% 30%;
-    }
-    
-    100% {
-      background-position: 50% 20%;
-    }
-  }
-
-
-.headContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 400px;
-   
-    padding-bottom: 20px;
-   
-}
-
-.backButton{
-    order: 1;
-   
-    margin: auto;
-   
-}
-
-.visualiser
-{
-    margin: auto;
-order:2;
-
+  max-width: 200px;
+  max-height: 2000px;
 
 }
-
-.help
-{
-    margin: auto;
-order:3;
-
-}
-
-.flexContainer 
-{
-justify-content: center;
-display: flex;
-flex-direction: column;
-
-}
-
-.header
-{
-    order:1;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    
-}
-
-.bar{
-    order:2;
-    margin-top: auto;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    
-    
-    
-  }
-  .bar:hover{
-    box-shadow: 1px 1px 8px 1px #e2dae0;
-    border-radius:30px;
-  }
-  .bar:focus-within{
-    box-shadow: 1px 1px 8px 1px #e2dae0;
-    outline:none;
-    border-radius:30px;
-  }
-
- .searchbar{
-    height:45px;
-    border:none;
-    width:400px;
-    font-size:16px;
-    outline: none;
-    border-radius:30px;
-    
-    
-  }
-
-  .photoCardDetail
-  {
-   
-    color: aliceblue;
-    order: 3;
-    justify-content: center;
-    margin-top: auto;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .result
-  {
-    
-    order: 4;
-    margin: auto;
-   
-  }
-
-
-.tableSet 
-  {
-    width: 100%;
-    background-color: #e2dae0;
-    border-radius: 10px;
-
-}
-
-
-.tableDetail 
-{
-    width: 100%;
-    background-color: #e2dae0;
-    border-radius: 10px;
-
-}
-
-
-.button{
-    background-color: #f5f5f5;
-    border:none;
-    color:#707070;
-    font-size:15px;
-    padding: 10px 20px;
-    margin:5px;
-    border-radius:4px;
-    outline:none;
-  }
-  .button:hover{
-    border: 1px solid #e2dae0;
-    padding: 9px 19px;
-    color: #e2dae0
-  }
-  .button:focus{
-    border:1px solid #e2dae0;
-    padding: 9px 19px;
-  }
-  
-
-
-
-
-

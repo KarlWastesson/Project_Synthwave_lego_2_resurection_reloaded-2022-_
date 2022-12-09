@@ -6,19 +6,15 @@
     <div class="header">
     <?php include 'header.html'; ?>	
     </div>
-
     <div class="bar">
-    <form method="GET" action="setSearch.php"> 
-		
+    <form method="GET" action="setSearch.php"> 		
     <?php include 'search.php'; ?>	
     </form>
-    </div>
- 
+    </div> 
 		<div class="result">
 			<?php  
-		$SetID =  $_GET['set'];
-		
-		echo "<h2>Result of $SetID</h2>"; ?>		
+	        	$SetID =  $_GET['set'];		
+	            	echo "<h2>Result of $SetID</h2>"; ?>		
 			<table class="tableSet ">
 			<tbody>
 			<tr><th>SetID</th><th>SetName</th><th>Image</th>
@@ -31,10 +27,7 @@
 </html>
 
 
-
-
 <?php
-
 
 function printTable() {
     //remove whitespace!
@@ -48,9 +41,6 @@ function printTable() {
      {
         $limit = 20;
      }
-   
-  
-
     $con = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
 
     $query = buildSqlQuery($term, $limit);
@@ -66,9 +56,9 @@ function printTable() {
         print("<th>$setName</th>");
 
         if ($image) {
-            print("<th><img src=\"$image\" alt=\"NO image\"/></th>");
+            print("<th><img id=\"setPicture\" src=\"$image\" alt=\"NO image\"/></th>");
         } else {
-            print('<th><img src="noimage_small.png" alt="NO image"/></th>');
+            print('<th><img id=\"setPicture\" src="noimage_small.png" alt="NO image"/></th>');
         }
     }
 	mysqli_close($con);
