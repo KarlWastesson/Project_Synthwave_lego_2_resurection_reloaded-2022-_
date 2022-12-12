@@ -1,9 +1,10 @@
 body {
   background-image: url("test.jpg");
   animation: synthwave 20s linear infinite alternate;
-  background-repeat: no-repeat;
+  position: relative;
   background-attachment: fixed;
-  background-size: cover;
+  background-repeat:no-repeat;
+  
 }
 
 @keyframes synthwave {
@@ -84,7 +85,10 @@ body {
 
 .result {
   order: 4;
+  
+
 }
+
 
 .tableSet {
 
