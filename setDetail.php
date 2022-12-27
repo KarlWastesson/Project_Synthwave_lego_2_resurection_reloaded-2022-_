@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="helpPage.css">
+    <link rel="stylesheet" href="grid.css">
+    <title>A Meaningful Page Title</title>
+
+</head>
 
 <body>
 	<div class="flexContainer">
 		<div class="header">
-			<?php include 'header.html'; ?>
+			<?php include 'header.php'; ?>
 		</div>
 		<div class="bar">
 			<?php include 'search.php'; ?>
@@ -16,9 +25,9 @@
 			$SetPicture =  $_GET['setPicture'];
 
 			if ($SetPicture) {
-				echo ("<img src=\"$SetPicture\" alt=\"NO image\"/>");
+				echo ("<img src=\"$SetPicture\" alt=\"Image\">");
 			} else {
-				echo ('<th><img src="noimage_small.png" alt="NO image"/></th>');
+				echo ("<th><img src=\"noimage_small.png\" alt=\"NO image\"></th>");
 			}
 
 			echo ("<h1>Set of $SetID $SetName</h1>");
@@ -28,14 +37,19 @@
 			<table class="tableDetail" id="partTable">
 				<tbody>
 					<tr>
-						<th>Quantity</th>
+						
 						<th>Picture</th>
 						<th>Color</th>
 						<th>Part name</th>
 					</tr>
-					<?php printTable(); ?>
+					<?php printTable($searchArg); 
+					
+					
+					?>
 				</tbody>
 			</table>
+			
+
 		</div>
 	</div>
 </body>
@@ -45,8 +59,9 @@
 
 <?php
 
-function printTable()
+function printTable($arg)
 {
+	
 	$SetID =  $_GET['setID'];
 	$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");	//Lego is the db
 
@@ -83,7 +98,7 @@ function printTable()
 		$has_jpg    = $row['has_jpg'];
 		$colorname  = $row['Colorname'];
 		$partname   = $row['Partname'];
-		$url 		= "";
+		$url 		= "+";
 		$prefix		= "http://weber.itn.liu.se/~stegu/img.bricklink.com/";
 
 		if ($has_gif == 1) {
@@ -93,9 +108,8 @@ function printTable()
 		}
 		//rows ctrl D
 		print("<tr>\n");
-
 		print("<th id=\"row1\">" . $quantity . "</th>\n");
-		print("<th><image src=" . $prefix . $url . "></image></th>\n");
+		print("<th><image src=\"$prefix$url\"\></th>\n");
 		print("<th>" . $colorname . "</th>\n");
 		print("<th>" . $partname . "</th>\n");
 		print("</tr>");
@@ -103,5 +117,7 @@ function printTable()
 
 
 	mysqli_close($connection);
+
 }
+
 ?>

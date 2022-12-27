@@ -23,6 +23,8 @@
 .grid-container a img {
     display: block;
     margin: 0 auto;
+    width: 80%;
+
 }
 
 .grid-container a:hover {
