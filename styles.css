@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 400px;
+  gap: 100px;
   padding-bottom: 20px;
 }
 
@@ -35,8 +35,12 @@ body {
   order: 1;
 }
 
-.visualiser {
+.logo {
   order: 2;
+  width: 20vmax;
+  height: 20vh;
+  
+
 }
 
 .help {
@@ -92,16 +96,6 @@ body {
 }
 
 
-.tableSet {
-
-  width: 80vw;
-  background-color: #e2dae0;
-  border-radius: 10px;
-  border-collapse: separate;
-  border-spacing: 0;
-
-}
-
 th {
   border: 1px solid black;
 }
@@ -110,7 +104,7 @@ th {
 .tableDetail {
   width: 100%;
   background-color: #e2dae0;
-  border-radius: 10px;
+  
 }
 
 .button {

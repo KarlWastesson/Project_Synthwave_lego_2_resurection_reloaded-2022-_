@@ -41,6 +41,7 @@
 
 						<th>Picture</th>
 						<th>Color</th>
+						<th>Color</th>
 						<th>Part name</th>
 					</tr>
 					<?php printTable($searchArg);
