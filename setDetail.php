@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="helpPage.css">
-    <link rel="stylesheet" href="grid.css">
-    <title>A Meaningful Page Title</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="helpPage.css">
+	<link rel="stylesheet" href="grid.css">
+	<title>A Meaningful Page Title</title>
 
 </head>
 
@@ -27,7 +28,7 @@
 			if ($SetPicture) {
 				echo ("<img src=\"$SetPicture\" alt=\"Image\">");
 			} else {
-				echo ("<th><img src=\"noimage_small.png\" alt=\"NO image\"></th>");
+				echo ("<img src='noimage_small.png' alt='NO image'>");
 			}
 
 			echo ("<h1>Set of $SetID $SetName</h1>");
@@ -37,18 +38,18 @@
 			<table class="tableDetail" id="partTable">
 				<tbody>
 					<tr>
-						
+
 						<th>Picture</th>
 						<th>Color</th>
 						<th>Part name</th>
 					</tr>
-					<?php printTable($searchArg); 
-					
-					
+					<?php printTable($searchArg);
+
+
 					?>
 				</tbody>
 			</table>
-			
+
 
 		</div>
 	</div>
@@ -61,7 +62,7 @@
 
 function printTable($arg)
 {
-	
+
 	$SetID =  $_GET['setID'];
 	$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");	//Lego is the db
 
@@ -107,17 +108,14 @@ function printTable($arg)
 			$url = $itemTypeID . "/" . $colorID . "/" . $itemID . ".jpg";
 		}
 		//rows ctrl D
-		print("<tr>\n");
-		print("<th id=\"row1\">" . $quantity . "</th>\n");
-		print("<th><image src=\"$prefix$url\"\></th>\n");
+		print("<tr >\n");
+		print("<th>" . $quantity . "</th>\n");
+		print("<th><img src=\"$prefix$url\" alt='Part image'></th>\n");
 		print("<th>" . $colorname . "</th>\n");
 		print("<th>" . $partname . "</th>\n");
 		print("</tr>");
 	}
-
-
 	mysqli_close($connection);
-
 }
 
 ?>

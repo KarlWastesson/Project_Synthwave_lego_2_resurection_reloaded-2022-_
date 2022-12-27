@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    
-    
+    <title>A Meaningful Page Title</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="helpPage.css">
     <link rel="stylesheet" href="grid.css">
-    <title>A Meaningful Page Title</title>
-
 </head>
+
 <body>
     <div class="flexContainer">
         <div class="header">
             <?php include 'header.php'; ?>
         </div>
         <div class="bar">
-            
-                <?php include 'search.php'; ?>
-                <?php
-        $SetID =  $_GET['set'];
-        echo "<h2 style='color:white'>Result of $SetID</h2>";
-        ?>
+
+            <?php include 'search.php'; ?>
+            <?php
+            $SetID =  $_GET['set'];
+            echo "<h2 style='color:white'>Result of $SetID</h2>";
+            ?>
         </div>
-        
+
         <div class="grid-container">
-            
+
             <?php printTable(); ?>
         </div>
     </div>
@@ -53,19 +52,18 @@ function printTable()
     while ($row = mysqli_fetch_array($res)) {
         $setID = $row['SetID'];
         $setName = $row['Setname'];
-        $setNameNoChar = preg_replace("/[^a-zA-z0-9]/", "+", $row['Setname']); 
+        $setNameNoChar = preg_replace("/[^a-zA-z0-9]/", "+", $row['Setname']);
         $image = fetchImage($con, $setID);
-        //första print skapar hela "divven" sen pushas allt därefter. </a> läggs till automatiskt i slutet ¯\_(ツ)_/¯
+        //första print skapar hela "divven" sen pushas allt därefter.
         print("<a href='setDetail.php?setID=$setID&setName=$setNameNoChar&setPicture=$image'>");
         print("<p>$setName</p>");
         print("<p>$setID</p>");
-      
+
         if ($image) {
             print("<img src=\"$image\" alt=\"Image\"></a>");
         } else {
             print("<img src=\"noimage_small.png\" alt=\"NO image\"></a>");
         }
-        
     }
     mysqli_close($con);
 }
