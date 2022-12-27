@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>A Meaningful Page Title</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="helpPage.css">
     <link rel="stylesheet" href="grid.css">
 </head>
-
 <body>
     <div class="flexContainer">
         <div class="header">
             <?php include 'header.php'; ?>
         </div>
         <div class="bar">
-
             <?php include 'search.php'; ?>
             <?php
             $SetID =  $_GET['set'];
             echo "<h2 style='color:white'>Result of $SetID</h2>";
             ?>
         </div>
-
         <div class="grid-container">
-
             <?php printTable(); ?>
         </div>
     </div>
 </body>
-
 </html>
 
 <?php

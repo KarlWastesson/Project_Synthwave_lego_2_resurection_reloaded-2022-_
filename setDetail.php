@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
-
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="helpPage.css">
 	<link rel="stylesheet" href="grid.css">
 	<title>A Meaningful Page Title</title>
-
 </head>
-
 <body>
 	<div class="flexContainer">
 		<div class="header">
@@ -24,13 +20,11 @@
 			$SetID =  $_GET['setID'];
 			$SetName =  $_GET['setName'];
 			$SetPicture =  $_GET['setPicture'];
-
 			if ($SetPicture) {
 				echo ("<img src=\"$SetPicture\" alt=\"Image\">");
 			} else {
 				echo ("<img src='noimage_small.png' alt='NO image'>");
 			}
-
 			echo ("<h1>Set of $SetID $SetName</h1>");
 			?>
 		</div>
@@ -38,29 +32,21 @@
 			<table class="tableDetail" id="partTable">
 				<tbody>
 					<tr>
-
-						<th>Picture</th>
-						<th>Color</th>
+						<th>Pieces</th>
+						<th>Image</th>
 						<th>Color</th>
 						<th>Part name</th>
 					</tr>
 					<?php printTable($searchArg);
-
-
 					?>
 				</tbody>
 			</table>
-
-
 		</div>
 	</div>
 </body>
-
 </html>
 
-
 <?php
-
 function printTable($arg)
 {
 
