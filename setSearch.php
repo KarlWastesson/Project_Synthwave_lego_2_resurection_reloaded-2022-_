@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="helpPage.css">
     <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="headerBar.css">
 </head>
 <body>
     <div class="flexContainer">

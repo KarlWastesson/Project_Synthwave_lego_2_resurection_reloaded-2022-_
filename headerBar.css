@@ -1,0 +1,31 @@
+.headerBtn {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2em;
+    color: rgb(231, 219, 219);	
+    animation: glow 1s ease-in-out infinite alternate;
+    text-align: center;
+
+
+    border-radius: 60px;
+    border: none;
+    cursor: pointer;
+   
+ 
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #b8aec8, 0 0 20px #b8aec8, 0 0 30px #b8aec8, 
+        0 0 40px rgb(253, 211, 25), 
+        0 0 50px rgb(253, 211, 25), 
+        0 0 60px rgb(253, 211, 25),
+        0 0 70px rgb(253, 211, 25);
+      }
+      to {
+        text-shadow: 0 0 20px #b8aec8, 0 0 30px #ffed4d, 0 0 40px #ffed4d, 
+        0 0 50px #ffed4d, 
+        0 0 60px #ffed4d, 
+        0 0 70px #ffed4d, 
+        0 0 80px #ffed4d;
+      }
+}

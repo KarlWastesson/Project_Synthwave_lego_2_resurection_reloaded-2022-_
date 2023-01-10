@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="helpPage.css">
   <link rel="stylesheet" href="grid.css">
+  <link rel="stylesheet" href="helpPage.css">
 </head>
 
 <body>

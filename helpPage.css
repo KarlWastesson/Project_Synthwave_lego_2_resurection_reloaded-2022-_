@@ -1,9 +1,7 @@
 
-/*  */
-@import 'https://fonts.googleapis.com/css?family=Damion|Work+Sans:900';
 
 .title {
-    font-family: 'Damion' , cursive;
+    font-family: 'Brush Script MT', cursive;
     font-size: 2em;
     color: #fff;	
     animation: glow 1s ease-in-out infinite alternate;
@@ -29,7 +27,7 @@
 }
 
 .content {
-    font-family: 'Work sans', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size: 1.5em;
     text-align: center;
     color: #A3A3A3;
