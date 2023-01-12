@@ -1,9 +1,8 @@
+ /*sätter upp ett template med så många rutor som 250px rymmer där varje ruta tar upp "1fraction" av tillgänglig yta.*/
 .grid-container {
     order: 4;
     display: grid;
-    /*sätter upp ett template med så många rutor som 250px rymmer där varje ruta tar upp "1fraction" av tillgänglig yta.*/
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /*Fyller grid till höger*/
     grid-auto-flow: row;
     padding: 10px;
     gap: 30px;
@@ -30,3 +29,4 @@
 .grid-container a:hover {
     background-color: rgb(3, 0, 50);
 }
+

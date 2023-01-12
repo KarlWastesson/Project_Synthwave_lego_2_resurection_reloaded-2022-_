@@ -43,9 +43,11 @@
     width: 50%;
     height: 100%;
 
-    margin: 20vh;
-    margin-left: auto;
+    /* Createa a bit of space from the boxes, change as needed */
+    margin-left: 5vw;
+    margin-right: 5vw;
     padding: 5vw;
+    
 }
 
 
@@ -60,8 +62,7 @@
 .row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-start;
     margin: 0;
-    padding: 0;
 }
